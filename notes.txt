@@ -1,0 +1,73 @@
+### POST and GET
+- POST - sending data to backend/server from frontend/client
+- GET - requesting data to the backend/server from the frontend/client
+- app.route('', methods=[x])
+- x - POST means that this function will receive data from the frontend
+    - GET means this function will return data to the frontend
+- now both post and get can receive and return information but not recommended (security issues)
+
+
+### JSON
+JSON Messages & Data Flow 🔄
+JSON (JavaScript Object Notation) is just text-based structured data, like a string representation of a dictionary (unordered_map in C++). It moves between the frontend and backend in plain text format.
+
+How JSON Moves Between Frontend & Backend
+1️⃣ Frontend (JS) sends data to Flask:
+
+Uses fetch() to send a POST request with JSON.stringify({ key: "abc", text: "hello" }).
+Data is sent as a JSON string in the request body.
+2️⃣ Backend (Flask) receives & processes the request:
+
+Uses request.json to parse the JSON string into a Python dict.
+3️⃣ Backend sends response back as JSON:
+
+Returns a Python dict, which Flask converts to JSON automatically.
+4️⃣ Frontend receives & processes JSON response:
+
+Uses await response.json() to convert the JSON response into a JavaScript object.
+
+
+
+### BACKEND
+- as soon as u connect a backend to your project, from now on u can make app.py act as the main function 
+- it, for each endpoint or urls, returns the files (html)
+- render_template('index.html') is a function that looks into the /templates folder in your same folder app.py is
+and fetches any file that is same the one sent in the parameter
+- /encrypt or /decrypt are just logical api endpoints and not really any pages
+
+
+### app
+- app = Flask(__name__) is nothing but instantiation of the flask object 
+this is used to route throughout the backend
+
+- @app.route('', methods=[]) 
+is a decorator in Flask that defines a URL endpoint and binds it to a function. When a request hits that URL, Flask calls the associated function.
+
+
+### fetch()
+- fetch takes in
+1. url
+2. dictionary of options. this includes
+	1. methods
+	2. headers
+	3. body
+
+let response = fetch('/', {
+	methods : ['POST'],
+	headers : {"Content-Type":"application/json"},
+	body: JSON.stringify({key: KEY, text:TEXT})
+});
+
+- fetch returns a promise, which then resolves to a response if its successful or an error
+- its async, so we can use await before it to halt further execution
+
+
+###
+let result = await response.json()
+- this converts the json message of response into a js object or hashmap
+
+
+### Request and Jsonify
+- request is an object in Flask that contains all incoming data from the frontend (like form data, JSON, headers, etc.).
+- It's used to retrieve data sent from the client.
+jsonify is a Flask function that converts Python dictionaries or lists into proper JSON responses.

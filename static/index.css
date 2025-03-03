@@ -1,0 +1,9 @@
+body {
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.container {
+    text-align: center;  /* Align text inside */
+}
