@@ -22,5 +22,18 @@ def encrypt():
 
     return jsonify({'cipherText' : result.stdout.strip()})
 
+
+@app.route('/decrypt', methods=['POST'])
+def decrypt():
+    data = request.json
+    key = data['key']
+    cipherText = data['text']
+
+    #cpp file
+    result = subprocess.run(['code/aes.exe', key, cipherText, "decrypt"], capture_output=True, text=True)
+
+    return jsonify({'plainText':result.stdout.strip()})
+
+
 if (__name__ == '__main__'):
     app.run(debug=True)

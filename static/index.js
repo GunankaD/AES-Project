@@ -29,9 +29,20 @@ encryptButton.addEventListener("click", async () => {
   console.log(result["cipherText"]);
 });
 
-decryptButton.addEventListener("click", () => {
-  let key = keyInput.value;
+decryptButton.addEventListener("click", async () => {
+  let inputKey = keyInput.value;
   let cipherText = textInput.value;
 
-  // console.log(key, " ", cipherText);
+  console.log(inputKey, " ", cipherText);
+
+  let response = await fetch('/decrypt',{
+    method: 'POST',
+    headers: {"Content-type" : 'application/json'},
+    body: JSON.stringify({key: inputKey, text: cipherText})
+  });
+
+  let result = await response.json();
+  
+  // decrypted text
+  console.log(result['plainText']);
 });
