@@ -2,12 +2,11 @@ body {
     background-color: bisque;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     place-items: center;
-    height: 95vh;
+    min-height: 100vh;
     font-family: 'Inter', sans-serif;
 }
-
 
 .container {
     text-align: center; 
@@ -16,13 +15,14 @@ body {
 
 input, textarea {
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    width: 400px;
-    
+    width: 40%;
+    max-width: 400px;
 }
+
 textarea {
     resize: none;
     height: 200px;
@@ -39,6 +39,7 @@ button {
     color: white;
     transition: 0.3s;
 }
+
 button:hover {
     background: #2980b9;
 }
@@ -50,4 +51,3 @@ button:hover {
     text-align: left; 
     font-size: 12px; 
 }
-
