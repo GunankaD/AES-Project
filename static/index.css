@@ -4,15 +4,17 @@ body {
     justify-content: center;
     align-items: center;
     place-items: center;
+    height: 95vh;
     font-family: 'Inter', sans-serif;
 }
+
+
 .container {
     text-align: center; 
     align-items: center;
 }
 
 input, textarea {
-    font-family: 'Inter', sans-serif;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -27,7 +29,6 @@ textarea {
 }
 
 button {
-    font-family: 'Inter', sans-serif;
     padding: 10px 15px;
     margin: 10px;
     border: none;
@@ -41,3 +42,12 @@ button {
 button:hover {
     background: #2980b9;
 }
+
+.tooltip-inner {
+    font-family: 'Inter', sans-serif;
+    white-space: normal !important;
+    max-width: 200px; 
+    text-align: left; 
+    font-size: 12px; 
+}
+

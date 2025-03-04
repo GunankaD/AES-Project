@@ -3,40 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- required for the question marks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="static/index.css">
     <title>AES</title>
 </head>
 
 <body>
     <div class="container">
-        <div>
+        <div id="heading_div">
             <h1 id="mainHeading">Advanced Encryption Standard (AES-128)</h1>
         </div>
 
-        <div>
+        <div id="key_div">
+            <!-- key input -->
             <input type="text" id="key" placeholder="Enter 16 character key">
-            <i class="fa fa-question-circle mark-que" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Key must be 16 characters long, or 128 bits long. (16 chars * 8 bits = 128 bits)"></i>
+            <!-- key's tool tip -->
+            <i class="fa fa-question-circle mark-que" 
+            aria-hidden="true" 
+            data-bs-toggle="tooltip" data-bs-placement="right" 
+            title="Key must be 16 characters long, or 128 bits long. (16 chars * 8 bits = 128 bits)"></i>
         </div>
         
-        <div>
+        <div id="plain_cipher_input_div">
+            <!-- plaintext input's tool tip -->
+            <i class="fa fa-question-circle mark-que" 
+            aria-hidden="true" 
+            data-bs-toggle="tooltip" data-bs-placement="left" 
+            title="Any length, any character. PKCS7 Padding is applied."></i>
+            <!-- plain text input -->
             <input type="text" id="plainText" placeholder="Enter plaintext">
+
+
+            <!-- ciphertext input -->
             <input type="text" id="cipherText" placeholder="Enter ciphertext">
+            <!-- ciphertext input's tool tip -->
+            <i class="fa fa-question-circle mark-que" 
+            aria-hidden="true" 
+            data-bs-toggle="tooltip" data-bs-placement="right" 
+            title="Must be Hexadecimal string. Length must be a multiple of 32 characters."></i>
         </div>
         
-        <div>
+        <div id="buttons_div">
+            <!-- encrypt and decrypt buttons -->
             <button id="encryptButton">Encrypt</button>
             <button id="decryptButton">Decrypt</button>
         </div>
         
-        <div>
+        <div id="output_textarea_div">
+            <!-- output text areas -->
             <textarea id="encryptedOutput" placeholder="Encrypted message:" readonly></textarea>
             <textarea id="decryptedOutput" placeholder="Decrypted message:" readonly></textarea>
         </div>
     </div>
 
+    <!-- Bootstrap JS (Popper.js is required for tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/index.js" defer></script>
 </body>
 </html>

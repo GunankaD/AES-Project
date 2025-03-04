@@ -1,5 +1,13 @@
 console.log("script loaded!!");
 
+// for the tooltip hovering part
+document.addEventListener("DOMContentLoaded", function () {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+
 // get the button elements
 let encryptButton = document.querySelector("#encryptButton");
 let decryptButton = document.querySelector("#decryptButton");
