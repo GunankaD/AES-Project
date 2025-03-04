@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="static/index.css">
     <title>AES</title>
 </head>
 
 <body>
-
     <div class="container">
-        <h1 id="mainHeading">Advanced Encryption Standard</h1>
-        <input type="text" id="key" placeholder="Enter key...">
-        <input type="text" id="plainText" placeholder="Enter plaintext">
-        <input type="text" id="plain_cipher_text" placeholder="Enter plaintext">
-    
-        <button id="encryptButton">Encrypt</button>
-        <button id="decryptButton">Decrypt</button>
+        <div>
+            <h1 id="mainHeading">Advanced Encryption Standard (AES-128)</h1>
+        </div>
 
-        <h6>1234567890abcdef</h6>
+        <div>
+            <input type="text" id="key" placeholder="Enter 16 character key">
+            <i class="fa fa-question-circle mark-que" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Key must be 16 characters long, or 128 bits long. (16 chars * 8 bits = 128 bits)"></i>
+        </div>
+        
+        <div>
+            <input type="text" id="plainText" placeholder="Enter plaintext">
+            <input type="text" id="cipherText" placeholder="Enter ciphertext">
+        </div>
+        
+        <div>
+            <button id="encryptButton">Encrypt</button>
+            <button id="decryptButton">Decrypt</button>
+        </div>
+        
+        <div>
+            <textarea id="encryptedOutput" placeholder="Encrypted message:" readonly></textarea>
+            <textarea id="decryptedOutput" placeholder="Decrypted message:" readonly></textarea>
+        </div>
     </div>
 
-<script src="static/index.js" defer></script>
+    <script src="static/index.js" defer></script>
 </body>
 </html>

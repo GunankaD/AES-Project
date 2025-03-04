@@ -6,12 +6,16 @@ let decryptButton = document.querySelector("#decryptButton");
 
 // get the input elements
 let keyInput = document.querySelector("#key");
-let textInput = document.querySelector("#plain_cipher_text");
-let body = document.querySelector("body");
+let plainTextInput = document.querySelector("#plainText");
+let cipherTextInput = document.querySelector("#cipherText");
+
+// get the output elements
+let encryptedOutput = document.querySelector("#encryptedOutput");
+let decryptedOutput = document.querySelector("#decryptedOutput");
 
 encryptButton.addEventListener("click", async () => {
   let inputKey = keyInput.value; // extract key and text
-  let plainText = textInput.value;
+  let plainText = plainTextInput.value;
 
   console.log(inputKey, " ", plainText);
 
@@ -27,11 +31,15 @@ encryptButton.addEventListener("click", async () => {
 
   // encrypted text
   console.log(result["cipherText"]);
+
+  // change the text area to display the ciphertext
+  encryptedOutput.value = result["cipherText"];
 });
+
 
 decryptButton.addEventListener("click", async () => {
   let inputKey = keyInput.value;
-  let cipherText = textInput.value;
+  let cipherText = cipherTextInput.value;
 
   console.log(inputKey, " ", cipherText);
 
@@ -45,4 +53,6 @@ decryptButton.addEventListener("click", async () => {
   
   // decrypted text
   console.log(result['plainText']);
+
+  decryptedOutput.value = result["plainText"];
 });
