@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: chmod +x ./code/aes.exe && gunicorn app:app

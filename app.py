@@ -1,6 +1,8 @@
 from flask import Flask, render_template, jsonify, request
-import subprocess, os
+import subprocess, os, stat
 
+# Ensure executable permissions
+os.chmod('./code/aes.exe', os.stat('./code/aes.exe').st_mode | stat.S_IEXEC)
 
 app = Flask(__name__)
 
